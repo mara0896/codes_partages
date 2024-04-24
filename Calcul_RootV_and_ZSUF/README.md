@@ -8,15 +8,18 @@
 Pour utiliser les deux fonctions présentent dans le document il faut déjà disposer d'un système racinaire. Pour celà, il faut faire tourner CRootBox de la façon suivante :
 
 '''
+
     # RUN CROOTBOX
     system("inputs/crootbox.exe") 
-      
+    
     # Get the results of the simulation and save it in a .txt file
     rootsystem <- fread("outputs/current_rootsystem.txt", header = TRUE, colClasses = "numeric")
+
 '''
 Ensuite, nous devons également faire tourner MARSHAL afin d'obtenir les paramètres hydrauliques de ce système. Nous faisons ça de la façon suivante :
 
 '''  
+
     # Default parameters set for the MARSHAL simulation 
     psiCollar <- -15000
     soil <- read_csv("inputs/soil.csv")
@@ -24,6 +27,7 @@ Ensuite, nous devons également faire tourner MARSHAL afin d'obtenir les paramè
         
     # RUN MARSHAL
     hydraulics <- getSUF(rootsystem, conductivities, soil, psiCollar)
+    
 '''
 
 # Utilisation des fonctions
